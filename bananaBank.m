@@ -3,8 +3,15 @@
 
 %% Creating banana filter banks
 
-% Define a set of parameters used to create curvature filter bank
+% This script creates banana filter bank and a customized curvature filter
+% bank designed for the dataset used could optimize performance. Remember
+% to change the histcount line in the curvRate.m file after making changes
+% to the curvature filter bank.
 
+% Define a set of parameters used to create curvature filter bank
+% For the default, there are 6 curvature levels (each curvature level apart
+% from 0 has a concave and a convex version), 16 orientations for each
+% curvature level and 1 gaussian size. 
 ories = [0:pi/16:15*pi/16]; % Orientation of filter in radian
 curvs = [0, -1/128, 1/128, -1/64, 1/64, -1/32, 1/32, -1/20, 1/20, -1/12, 1/12]; % Curvature level 
 gau_sizes = [10]; % Gaussian filter size
@@ -26,18 +33,6 @@ end
 
 save('bananaBank.mat','bf');
 
-%% Visualise a subset of curvature filters
-figure
-colormap gray
-
-for i=1:length(curvs)
-    for j=1:length(ories)
-        colormap gray
-        ax((i-1)*length(ories)+j) = subplot('Position',[(j-1)*1/length(ories) (length(curvs)-i)*1/length(curvs) 1/length(ories) 1/length(curvs)]); 
-        imagesc(real(fil((i-1)*length(ories)+j).filter),[-0.4754, 1.6] );
-        axis off
-    end
-end
-
-
-
+% Curvature filter 1-16 has curvature level 1 (0),  17-48 has level 2 (1/128),
+% 49-80 (1/64) has level 3, 81-112 has level 4 (1/32), 113-144 has
+% level 5 (1/20), and 145-176 has level 6 (1/12).
