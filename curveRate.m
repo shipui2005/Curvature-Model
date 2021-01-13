@@ -6,7 +6,7 @@ function [rating, dist] = curveRate(orig_img, bf, edgeMap, w, sigma, order)
 % orig_img is the original image, bf is the curvature filter bank, mask is the edge mask of the image
 % If no mask is provided, it uses the default edge detector to create edge mask
 % Last 3 variables are the parameters for divisive normalization used after fitting image to the banana filter
-% Default used taking the mean for divisive normalization
+% Default the mean for divisive normalization
 
 % Output:
 % rating is the curvature rating from 1 to 6
@@ -51,10 +51,12 @@ function [rating, dist] = curveRate(orig_img, bf, edgeMap, w, sigma, order)
     
     % Calculate the probability of curvature from edge pixels
     % Bin has to be changed if the filters are changed
+    % For the default, filter 1-16 has no curvature, and every 32 filters
+    % afterward has 1 level of curvature increment, that's why the default 
+    % confiuration is [1,17:23:177]. 
     [dist EDGES] = histcounts(v,[1,17:32:177],'Normalization','probability');
     
     % Get the mean curvature of all pixels
     rating = sum(dist.*[1:6]);
     
 end
-
