@@ -1,5 +1,6 @@
 function [ out ] = curveFit( im, fil, w, sigma , order )
-% A curvature model that used to detect the curvature in an image
+% Convolve the input with the curvature filiters and perform divisice
+% normalization
 % Created by Donald LI on 1/23/2020
 
 if (size(im,3) == 3)
