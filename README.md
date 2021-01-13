@@ -17,7 +17,7 @@ img = imread('./SampleImages/scene.jpeg');
 # Implementation details
 * CurvatureModelDemo.m is a demo MATLAB script to obtain curvature index of the sample images.
 * curveRate.m is the main code to obtain curvature rating of the image.
-* bananaFilter.m contains the script to create cruvature filters used in the model.
+* bananaFilter.m contains the script to create curvature filters used in the model.
 * bananaBank.m gathers all the curvature filters to create a curvature filter bank.
 * curveFit.m fits curvature filter to the input image using curConv.m and divNorm.m.
 * curConv convolves the curvature filter with the input image.
