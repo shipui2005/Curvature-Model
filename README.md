@@ -25,6 +25,11 @@ img = imread('./SampleImages/scene.jpeg');
 
 See our paper - https://openreview.net/forum?id=CUi1G2UWsAm - for the model details.
 
+# Notes
+1. The default model uses the "Roberts" edge detector to detect edge pixels, which may not be optimal. Better performance can be yielded by providing an edge map to the curvature model.
+2. The default model uses a 6-point curvature rating. While the common range yielded by natural images are usually between 2-4. The curvature rating should be interpreted in a relative manner instead of an absolute way. For example, an image of a square (sq1.img) will yield a curvature level of 2, and this does not mean that the image contains a lot of curvy edges.
+3. The curvature filter bank (bananaBank.mat) could be modified to include a wider range of curvature filter and customized curvature level. The parameters of the curvature filter could be changed via bananaBank.m and bananaFilter.m. After the curvature bank is being updated, remember to modify the curveRate.m to obtain a correct rating.
+
 # Contact and support
 Please email to Donald Li -  shipui2005[ at ]hotmail[ dot ]com - for support.
 
