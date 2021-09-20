@@ -31,7 +31,7 @@ See our paper - https://openreview.net/forum?id=CUi1G2UWsAm - for the model deta
 3. The curvature filter bank (bananaBank.mat) could be modified to include filters at different sizes, orientations, and curvature levels. The default settings may need to be changed depending on the kinds of images you are working with. The parameters of the curvature filters can be changed via bananaBank.m and bananaFilter.m. After updating the curvature bank, you will also to modify the curveRate.m to obtain a correct rating.
 
 # Contact and support
-Please email to Donald Li -  shipui2005[ at ]hotmail[ dot ]com - for support.
+Please email to Donald Li -  sli97[ at ]jhu[ dot ]edu - for support.
 
 # Authors
 * Donald Li (https://pages.jh.edu/sli97/)
